@@ -1,37 +1,44 @@
 var app = app || {};
 
 (function(){
-	controller {
+
+	app.controller = {
 		init: function(){
-			gps.init();
-			debug.init();
+			app.debug.init();
+			app.gps.init();
+			app.map.init();
+			app.tour.init();			
 		}
 	}
 
-	gps {
-		init: function(){
-			//
-		}
-	}
-
-	map {
+	app.gps = {
 		init: function(){
 			//
+			console.log("GPS is available");
 		}
 	}
 
-	tour {
+	app.map = {
 		init: function(){
 			//
+			console.log("Map is ready");
 		}
 	}
 
-	debug {
+	app.tour = {
 		init: function(){
 			//
+			console.log("Tour loaded");
 		}
 	}
 
-	controller.init();
+	app.debug = {
+		init: function(){
+			//
+			console.log("Debug initialized");
+		}
+	}
+
+	app.controller.init();
 
 })();
