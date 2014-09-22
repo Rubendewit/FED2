@@ -6,3 +6,11 @@ body {
 	line-height: 22px;
 	text-align: justify;
 }
+
+section {
+	display: none;
+}
+
+section.active, section > section {
+	display: block;
+}
