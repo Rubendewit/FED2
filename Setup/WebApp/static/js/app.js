@@ -1,18 +1,18 @@
 var app = app || {};
 
 (function(){
-	app.controller = {
+	app.controller = { 				// Controller function, starts the rest of the function.
 		init: function(){
-			app.sections.init();
-			app.router.init();
+			app.sections.init(); 	// Starts the section init
+			app.router.init(); 		// Starts the router init
 		}
 	};
 
-	app.router = {
+	app.router = {										// Router function
 		init: function(){
-			routie({
-    			'about': function() {
-    				app.sections.toggle('about-page');
+			routie({ 									// Routie looks at the # in the URL
+    			'about': function() {					// If 'about' is after the # then..
+    				app.sections.toggle('about-page');  // .. the 'about-page' section becomes visible
     			},
 
    		 		'movies': function() {
@@ -22,27 +22,27 @@ var app = app || {};
 		}
 	};
 
-	app.sections = {
+	app.sections = {				// Sections funtion
 		init: function(){
-			this.about();
-			this.movies();
+			this.about();			// Starts the about function
+			this.movies();			// Starts the movies function
 		},
-		toggle: function(id){
-			var elements = document.getElementsByTagName('section');
-			for(var i in elements){
-				if(elements[i].classList)
-					elements[i].classList.remove('active');
+		toggle: function(id){											// The function uses the div ID given by the app.sections.toggle in routie									
+			var elements = document.getElementsByTagName('section');	// Every section goes in the variable
+			for(var i in elements){										// For every sections..
+				if(elements[i].classList)								
+					elements[i].classList.remove('active');				// .. the class 'active' is removed
 			}
 			if(document.getElementById(id))
-				document.getElementById(id).classList.add('active');
+				document.getElementById(id).classList.add('active');    // The class 'active' is given to the tag with the corresponding ID
 		},
 		about: function(){
-			Transparency.render(document.getElementById('about-page'), app.content.about);
+			Transparency.render(document.getElementById('about-page'), app.content.about); // Displays the tag with ID 'about-page' with the content from 'about'
 		},
 		movies: function(){
-			Transparency.render(document.getElementById('movie-page'), app.content.movies, directives);
+			Transparency.render(document.getElementById('movie-page'), app.content.movies, app.directives); // Besides the 'movies' content, it uses the 'directives' content too.
 		}
 	}
 
-	app.controller.init();
-})();
+	app.controller.init(); // Calls the controller init function > Gets the ball rolling
+})(); // Ending the Immediately Invoked Function Expression (IIFE) / Self Invoking Anonymous Function

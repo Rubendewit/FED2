@@ -39,13 +39,13 @@ var app = app || {};
 		]
 	}
 
-	directives = {
+	app.directives = {
 
-  	image: {
-    	src: function(params) {
-      		return "static/" + this.cover;
-    	}
-  	}
-};
+  		image: {
+    		src: function(params) {
+      			return "static/" + this.cover;
+    		}
+  		}
+	};
 
 })();
