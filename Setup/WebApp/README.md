@@ -19,3 +19,4 @@ Best practices used in code
 
 ## HTML
 * Always be semantically correct.
+
