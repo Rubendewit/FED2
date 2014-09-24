@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Web App V1, basic JavaScript Skeleton">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My Favorite Movies</title>
+        <link rel="stylesheet" href="static/css/style.css">
+        <link rel="author" href="humans.txt">
+
+    </head>
+    <body>
+
+		<header>
+			<nav>
+				<ul>
+					<li><a href="#about">About</a></li>
+					<li><a href="#movies">Movies</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="content">
+			<section id="about-page" data-route="about">
+				<header>
+					<h1 data-bind="title"></h1> <!-- Data-bind zorgt ervoor dat JavaScript weet waar het zijn content neer kan zetten-->
+					<p data-bind="description"></p>
+				</header>
+			</section>
+
+			<section id="movie-page" data-route="movies">
+				<h1 data-bind="title"></h1>	
+					<article data-bind="summary">
+						<section>
+							<header>
+								<h1 data-bind="title"></h1>
+								<p>Release date: <time data-bind="releaseDate"></time></p>
+							</header>
+
+							<figure>
+								<img src="" alt="" data-bind="image">
+							</figure>
+
+							<p data-bind="description"></p>
+						</section>
+					</article>
+			</section>
+
+		</main>
+
+		<script src="static/js/routie/routie.js"></script>
+        <script src="static/js/transparency/transparency.js"></script>
+        <script src="static/js/content.js"></script>
+        <script src="static/js/app.js"></script>
+    </body>
+</html>
