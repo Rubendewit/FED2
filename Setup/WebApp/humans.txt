@@ -1,0 +1,4 @@
+Naam: Ruben de Wit
+Klas: V2-05
+Studentnummer: 500659260
+Vak: Frontend Development

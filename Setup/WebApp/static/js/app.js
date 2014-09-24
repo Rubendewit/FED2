@@ -37,10 +37,10 @@ var app = app || {};
 				document.getElementById(id).classList.add('active');    // The class 'active' is given to the tag with the corresponding ID
 		},
 		about: function(){
-			Transparency.render(document.getElementById('about-page'), app.content.about); // Displays the tag with ID 'about-page' with the content from 'about'
+			Transparency.render(document.getElementById('about-page'), app.content.about, app.content.directives); // Displays the tag with ID 'about-page' with the content from 'about'
 		},
 		movies: function(){
-			Transparency.render(document.getElementById('movie-page'), app.content.movies, app.directives); // Besides the 'movies' content, it uses the 'directives' content too.
+			Transparency.render(document.getElementById('movie-page'), app.content.movies, app.content.directives); // Besides the 'movies' content, it uses the 'directives' content too.
 		}
 	}
 
