@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="description" content="Web App V1, basic JavaScript Skeleton">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>My Favorite Movies</title>
+        <title>My Favourite Movies</title>
         <link rel="stylesheet" href="static/css/style.css">
         <link rel="author" href="humans.txt">
 
@@ -29,16 +29,16 @@
 			</section>
 
 			<section id="movie-page" data-route="movies">
-				<h1 data-bind="title"></h1>	
+				<h1 class="movie-page-title">My favourite movies</h1>	
 					<article data-bind="summary">
 						<section>
 							<header>
 								<h1 data-bind="title"></h1>
-								<p>Release date: <time data-bind="releaseDate"></time></p>
+								<p>Release date: <time data-bind="release_date"></time></p>
 							</header>
 
 							<figure>
-								<img src="" alt="" data-bind="image">
+								<img src="" alt="" data-bind="cover">
 							</figure>
 
 							<p data-bind="description"></p>

@@ -9,21 +9,36 @@ body {
 
 nav ul {
 	width: 100%;
+	margin: 20px 0px 0px 0px;
+	padding: 0px;
 	background-color: black;
 	display: inline-block;
-	list-style-type: none;
+	list-style-type: none;	
 }
 
 nav ul li {
-	width: 45%;
-	padding: 10px;
+	width: 50%;
+	padding: 10px 0px;
+	text-align: center;
 	display: block;
-	float: left;
+	float: left;  
+
+	-webkit-transition: all 300ms cubic-bezier(0.6,.01,0.43,1);
+	-moz-transition: 	all 300ms cubic-bezier(0.6,.01,0.43,1);
+	-ms-transition: 	all 300ms cubic-bezier(0.6,.01,0.43,1);
+	-o-transition: 		all 300ms cubic-bezier(0.6,.01,0.43,1);
+	transition: 		all 300ms cubic-bezier(0.6,.01,0.43,1);
+}
+
+nav ul li:hover {
+	background-color: rgba(0, 139, 61, 0.76);
 }
 
 nav ul li a {
-	text-decoration: none;
+	width: 100%;
 	color: white;
+	text-decoration: none;
+	display: inline-block;
 }
 
 section {
@@ -36,4 +51,34 @@ section.active, section.active section {
 
 section#movie-page header > p {
 	font-style: italic;
+}
+section#movie-page h1.movie-page-title:nth-of-type(n+2) {
+	display: none;
+}
+section#movie-page article {
+	width: 44%;
+	margin: 0em 1em 2.1em 1em;
+	padding: 1em;
+	float: right;
+	background-color: rgba(235,235,235,1);
+}
+section#movie-page article:nth-of-type(odd){
+	float: left;
+	clear: both;
+}
+section#movie-page article section > header h1 {
+	font-size: 1.5em;
+	margin: 0em;
+}
+
+section#movie-page article section > figure {
+	width: 40%;
+	margin: 0em;
+	float: left;
+}
+
+section#movie-page article section > p {
+	width: 59%;
+	margin: 0em;
+	float: left;
 }

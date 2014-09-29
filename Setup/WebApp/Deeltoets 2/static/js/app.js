@@ -40,11 +40,11 @@ var app = app || {};
 			Transparency.render(document.getElementById('about-page'), app.content.about, app.content.directives); // Displays the tag with ID 'about-page' with the content from 'about'
 		},
 		movies: function(){
-			if(localStorage.getItem('movies')){
+			if(localStorage.getItem('moviesdas')){
 				Transparency.render(document.getElementById('movie-page'), JSON.parse(localStorage.getItem('movies')), app.content.directives);
 			}
 			else {
-				app.content.movies.xhr.trigger('GET', 'http://dennistel.nl/movies', function(res){
+				app.content.xhr.trigger('GET', 'http://dennistel.nl/movies', function(res){
 						localStorage.setItem('movies', res);
 						Transparency.render(document.getElementById('movie-page'), JSON.parse(res), app.content.directives);
 					});
