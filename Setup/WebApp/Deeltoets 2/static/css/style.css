@@ -1,10 +1,9 @@
 body {
-	width: 70%;
+	width: 100%;
 	margin: 0 auto;
 	font-size: 1.2em;
 	font-family: 'Calibri', Arial, sans-serif;
 	line-height: 1.25em;
-	text-align: justify;
 }
 
 nav ul {
@@ -52,12 +51,9 @@ section.active, section.active section {
 section#movie-page header > p {
 	font-style: italic;
 }
-section#movie-page h1.movie-page-title:nth-of-type(n+2) {
-	display: none;
-}
 section#movie-page article {
 	width: 44%;
-	margin: 0em 1em 2.1em 1em;
+	margin: 0em 0em 2.1em 0em;
 	padding: 1em;
 	float: right;
 	background-color: rgba(235,235,235,1);
@@ -70,13 +66,14 @@ section#movie-page article section > header h1 {
 	font-size: 1.5em;
 	margin: 0em;
 }
-
 section#movie-page article section > figure {
 	width: 40%;
-	margin: 0em;
+	margin: 0em 0.2em 0em 0em;
 	float: left;
 }
-
+section#movie-page article section > figure img {
+	width: 100%;
+}
 section#movie-page article section > p {
 	width: 59%;
 	margin: 0em;

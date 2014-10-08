@@ -29,28 +29,28 @@
 			</section>
 
 			<section id="movie-page" data-route="movies">
-				<h1 class="movie-page-title">My favourite movies</h1>	
-					<article data-bind="summary">
-						<section>
-							<header>
-								<h1 data-bind="title"></h1>
-								<p>Release date: <time data-bind="release_date"></time></p>
-							</header>
+				<article data-bind="summary">
+					<section>
+						<header>
+							<h1 data-bind="title"></h1>
+							<p>Release date: <time data-bind="release_date"></time></p>
+							<p>Score: <span data-bind="reviewScore"></span></p>
+						</header>
 
-							<figure>
-								<img src="" alt="" data-bind="cover">
-							</figure>
+						<figure>
+							<img src="" alt="" data-bind="cover">
+						</figure>
 
-							<p data-bind="description"></p>
-						</section>
-					</article>
+						<p data-bind="simple_plot"></p>
+					</section>
+				</article>
 			</section>
 
 		</main>
 
 		<script src="static/js/vendor/routie.js"></script>
         <script src="static/js/vendor/transparency.js"></script>
-        <script src="static/js/vendor/underscore.js"></script>
+        <script src="static/js/vendor/underscore-min.js"></script>
         <script src="static/js/content.js"></script>
         <script src="static/js/app.js"></script>
     </body>

@@ -18,7 +18,7 @@ var app = app || {};
    		 		'movies': function() {
    		 			app.sections.toggle('movie-page');	
     			}
-});
+			});
 		}
 	};
 
@@ -40,6 +40,8 @@ var app = app || {};
 			Transparency.render(document.getElementById('about-page'), app.content.about, app.content.directives); // Displays the tag with ID 'about-page' with the content from 'about'
 		},
 		movies: function(){
+			// REMOVE BEFORE TEST
+			localStorage.clear();
 			if(localStorage.getItem('movies')){
 				Transparency.render(document.getElementById('movie-page'), JSON.parse(localStorage.getItem('movies')), app.content.directives);
 			}
