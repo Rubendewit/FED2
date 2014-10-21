@@ -1,12 +1,17 @@
 <!doctype html>
 <html>
     <head>
+        <!-- META -->
         <meta charset="utf-8">
         <meta name="description" content="Web App V1, basic JavaScript Skeleton">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>My Favourite Movies</title>
-        <link rel="stylesheet" href="static/css/style.css">
         <link rel="author" href="humans.txt">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="static/css/reset.css">
+        <link rel="stylesheet" href="static/css/style.css">
+        
+        <title>My Favourite Movies</title>
 
     </head>
     <body>
@@ -21,24 +26,37 @@
 		</header>
 
 		<main id="content">
-			<section id="about-page" data-route="about">
+			
+			<section id="about-page">
 				<header>
 					<h1 data-bind="title"></h1>
-					<p data-bind="description"></p>
 				</header>
+				<p data-bind="description"></p>
 			</section>
 
 			<section id="movie-page">
 				<ul class="filter">
-					<li><a href="#movies/all">All</a></li>
- 					<li><a href="#movies/horror">Horror</a></li>
- 					<li><a href="#movies/crime">Crime</a></li>
- 					<li><a href="#movies/drama">Drama</a></li>
-					<li><a href="#movies/thriller">Thriller</a></li>
+					<ul class="genre">
+						<h1>Genre</h1>
+						<li><a href="#movies/genre/all">All</a></li>
+	 					<li><a href="#movies/genre/horror">Horror</a></li>
+	 					<li><a href="#movies/genre/crime">Crime</a></li>
+	 					<li><a href="#movies/genre/drama">Drama</a></li>
+						<li><a href="#movies/genre/thriller">Thriller</a></li>
+					</ul>
+					<ul class="date">
+						<h1>Date</h1>
+						<li><a href="#movies/date/date-asc">Ascending</a></li>
+						<li><a href="#movies/date/date-desc">Descending</a></li>
+					</ul>
+					<ul class="rating">
+						<h1>Rating</h1>
+						<li><a href="#movies/rating/asc">Ascending</a></li>
+						<li><a href="#movies/rating/desc">Descending</a></li>
+					</ul>
 				</ul>
 
- 				<!-- <h1>Favourite Movies</h1>  -->
-				<article data-bind="movies" id="movies">
+				<article id="movies" data-bind="movies">
 					<section>
 						<header>
 							<h1 data-bind="title"></h1>
@@ -51,13 +69,37 @@
 						</figure>
 
 						<p data-bind="simple_plot"></p>
+						<a data-bind="link" href="">Go to detail page</a>
 					</section>
+				</article>
+			</section>
+
+			<section id="detail-page">
+				<article id="detail" data-bind="detail">
+					
+					<header>
+						<h1 data-bind="title"></h1>
+						<p>Release date: <time data-bind="release_date"></time></p>
+						<p>Rating: <span data-bind="reviews"></span></p>
+						<p>Genre: <span data-bind="genres"></span></p>
+					</header>
+
+					<figure>
+						<img src="" alt="" data-bind="cover">
+					</figure>
+					
+					<p data-bind="plot"></p>
+
+					<section class="actors">
+						<p data-bind="actors"></p>
+					</section>
+
 				</article>
 			</section>
 
 		</main>
 
-		<!-- VENDOR SCRIPTS -->
+		<!-- SCRIPTS -->
 		<script src="static/js/vendor/routie.js"></script>
         <script src="static/js/vendor/transparency.js"></script>
         <script src="static/js/vendor/underscore.js"></script>

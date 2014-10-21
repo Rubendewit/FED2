@@ -19,13 +19,24 @@ var app = app || {};
    		 			app.sections.toggle('movie-page');	
     			},
 
-    			'movies/?:genre': function(genre){		// If there is a genre behind the hash 'movie', it will only show movies with that genre.
+    			'movies/genre/?:genre': function(genre){		// If there is a genre behind the hash 'movie/genre', it will only show movies with that genre.
 			    	app.sections.movies(app.xhr.getItem('movieData'), genre);
-			    }
+			    },
 
-			    // 'movie/?:id': function( id ) {
-			    // 	app.sections.detailMovie( app.xhr.getLocal('movieData'), id );
-			    // }
+			    'movies/rating/?:order': function(order){		// If there is an order behind the hash 'movie/rating', it will show movies based on their rating.
+			    	app.sections.movies(app.xhr.getItem('movieData'), order);
+			    },
+
+			    'movies/date/?:order': function(order){		// If there is an order behind the hash 'movie/rating', it will show movies based on their rating.
+			    	app.sections.movies(app.xhr.getItem('movieData'), order);
+			    },
+
+
+			    'movie/:ID': function(ID) {
+			    	app.sections.toggle('detail-page');	
+			    	app.sections.detail(app.xhr.getItem('movieData'), ID);
+			    }	
+
 			});
 		}
 	};
@@ -62,19 +73,66 @@ var app = app || {};
 				movie.reviews = _.reduce(movie.reviews, function(totalScore, review){	// .. then combine those values..
 					return totalScore + review.score; }, 0) / movie.reviews.length;		// .. and divide by total reviews to get the average review score.
 			});
-
-			if(filter) {
-				if(filter == 'all') {
-   		 			app.sections.toggle('movie-page');   		 			
-				} else {
-					obj = _.filter( obj, function(movie){ 							// Filters the obj..
+			switch(filter) {
+				case 'all':
+					app.sections.toggle('movie-page');
+					break;
+				case 'horror':
+				case 'crime':
+				case 'drama':
+				case 'thriller':	
+					obj = _.filter(obj, function(movie){ 							// Filters the obj..
 						filter = filter.charAt(0).toUpperCase() + filter.slice(1);	// .. with the genre behind the hash 'movie'..
 							return (_.contains(movie.genres, filter) == true); 		// .. and shows only movies with matching genre.
 					});
+					break;
+				case 'asc':
+					obj = _.sortBy(obj, function(movie){
+						return movie.reviews;
+					});
+					break;
+				case 'desc':
+					obj = _.sortBy(obj, function(movie){
+						return movie.reviews * -1;
+					});
+					break;	
+				case 'date-asc':
+					console.log("Ascending Date");
+					obj = _.sortBy(obj, function(movie){
+						return Date.parse(movie.release_date);
+					});
+					break;
+				case 'date-desc':
+					obj = _.sortBy(obj, function(movie){
+						return Date.parse(movie.release_date) * -1;
+					});
+					break;
+				default:
+					// No filter
+					break;
 				}
-			};
 
+			console.log(obj);
 			Transparency.render(document.getElementById('movies'), obj, app.content.directives); // Displays the element with ID 'movies' with the content from 'obj'.
+		},
+		detail: function (obj, movieId) {
+
+			obj = JSON.parse(obj);		
+
+			_.map(obj, function(movie){
+				movie.reviews = _.reduce(movie.reviews, function(totalScore, review){
+					return totalScore + review.score; }, 0) / movie.reviews.length;
+			});
+
+			_.map(obj, function(movie){
+				movie.genres = movie.genres.toString();
+			});
+
+			movieId = parseInt(movieId) - 1;	
+			obj = obj[movieId];
+			console.log(obj);
+
+			Transparency.render(document.getElementById('detail'), obj, app.content.directives);
 		}
 	};
 

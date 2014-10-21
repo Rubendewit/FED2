@@ -37,6 +37,12 @@ var app = app || {};
 						return this.reviews;
 					}
 				}
+			},
+
+			link: {
+				href : function(params) {
+					return '#movie/' + this.id;
+				}
 			}
 		}
 	};
