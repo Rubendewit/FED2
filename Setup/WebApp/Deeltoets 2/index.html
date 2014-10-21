@@ -23,18 +23,27 @@
 		<main id="content">
 			<section id="about-page" data-route="about">
 				<header>
-					<h1 data-bind="title"></h1> <!-- Data-bind zorgt ervoor dat JavaScript weet waar het zijn content neer kan zetten-->
+					<h1 data-bind="title"></h1>
 					<p data-bind="description"></p>
 				</header>
 			</section>
 
-			<section id="movie-page" data-route="movies">
-				<article data-bind="summary">
+			<section id="movie-page">
+				<ul class="filter">
+					<li><a href="#movies/all">All</a></li>
+ 					<li><a href="#movies/horror">Horror</a></li>
+ 					<li><a href="#movies/crime">Crime</a></li>
+ 					<li><a href="#movies/drama">Drama</a></li>
+					<li><a href="#movies/thriller">Thriller</a></li>
+				</ul>
+
+ 				<!-- <h1>Favourite Movies</h1>  -->
+				<article data-bind="movies" id="movies">
 					<section>
 						<header>
 							<h1 data-bind="title"></h1>
 							<p>Release date: <time data-bind="release_date"></time></p>
-							<p>Score: <span data-bind="reviewScore"></span></p>
+							<p>Rating: <span data-bind="reviews"></span></p>
 						</header>
 
 						<figure>
@@ -48,9 +57,11 @@
 
 		</main>
 
+		<!-- VENDOR SCRIPTS -->
 		<script src="static/js/vendor/routie.js"></script>
         <script src="static/js/vendor/transparency.js"></script>
-        <script src="static/js/vendor/underscore-min.js"></script>
+        <script src="static/js/vendor/underscore.js"></script>
+
         <script src="static/js/content.js"></script>
         <script src="static/js/app.js"></script>
     </body>

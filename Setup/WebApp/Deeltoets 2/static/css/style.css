@@ -51,31 +51,17 @@ section.active, section.active section {
 section#movie-page header > p {
 	font-style: italic;
 }
+
 section#movie-page article {
-	width: 44%;
-	margin: 0em 0em 2.1em 0em;
-	padding: 1em;
-	float: right;
+	
+}
+
+section#movie-page article section {
+	margin-bottom: 1em;
 	background-color: rgba(235,235,235,1);
 }
-section#movie-page article:nth-of-type(odd){
-	float: left;
-	clear: both;
-}
-section#movie-page article section > header h1 {
+
+section#movie-page article section header h1 {
 	font-size: 1.5em;
 	margin: 0em;
-}
-section#movie-page article section > figure {
-	width: 40%;
-	margin: 0em 0.2em 0em 0em;
-	float: left;
-}
-section#movie-page article section > figure img {
-	width: 100%;
-}
-section#movie-page article section > p {
-	width: 59%;
-	margin: 0em;
-	float: left;
 }

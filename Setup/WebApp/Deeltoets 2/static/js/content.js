@@ -11,25 +11,6 @@ var app = app || {};
 						  + '<p>That tall drink of water with the silver spoon up his ass. well, what is it today? more spelunking? i now issue a new commandment: thou shalt do the dance. let me tell you something my friend. hope is a dangerous thing. hope can drive a man insane. i did the same thing to gandhi, he didn\'t eat for three weeks. the man likes to play chess; let\'s get him some rocks. i now issue a new commandment: thou shalt do the dance. i now issue a new commandment: thou shalt do the dance. multiply your anger by about a hundred, kate, that\'s how much he thinks he loves you. i don\'t think they tried to market it to the billionaire, spelunking, base-jumping crowd. that tall drink of water with the silver spoon up his ass. it only took me six days. same time it took the lord to make the world. </p>'
 		},
 
-		xhr: {
-			trigger: function (type, url, success, data) {
-				var req = new XMLHttpRequest;
-				req.open(type, url, true);
-
-				req.setRequestHeader('Content-type','application/json');
-
-				type === 'POST' ? req.send(data) : req.send(null);
-
-				req.onreadystatechange = function() {
-					if (req.readyState === 4) {
-						if (req.status === 200 || req.status === 201) {
-							success(req.responseText);
-						}
-					}
-				}
-			}
-		},
-
 		directives: {
 
 			description: {
@@ -41,9 +22,51 @@ var app = app || {};
 	  		cover: {
     			src: function(params) {
       				return this.cover;
-    			}
-  			}
+    			},
+
+    			alt: function(params) {
+	    			return this.title;
+	    		}
+  			},
+
+  			reviews: {
+				text: function(){						
+					if(isNaN(this.reviews)){
+						return 'Geen score beschikbaar';
+					} else {
+						return this.reviews;
+					}
+				}
+			}
 		}
+	};
+
+	app.xhr = {
+		trigger: function (type, url, success, data) {
+			var req = new XMLHttpRequest;
+			req.open(type, url, true);
+
+			req.setRequestHeader('Content-type','application/json');
+
+			type === 'POST' ? req.send(data) : req.send(null);
+
+			req.onreadystatechange = function() {
+				if (req.readyState === 4) {
+					if (req.status === 200 || req.status === 201) {
+						success(req.responseText);
+					}
+				}
+			}
+		},
+
+		setItem: function(data) {
+			localStorage.setItem('movieData', data);
+		},
+
+		getItem: function(name) {
+			return localStorage.getItem(name);
+		}
+
 	};
 
 })();
