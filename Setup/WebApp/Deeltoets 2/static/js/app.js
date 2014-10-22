@@ -39,7 +39,7 @@ var app = app || {};
 			
 			data = app.xhr.getItem('movieData'); 	// Fetches local data
 			if(data == null) {						// If there is no local data..										
-				app.content.xhr.trigger('GET', 'http://dennistel.nl/movies', app.xhr.setItem, this.movies);	// .. it fetches the movie data from the site. On success, save the data locally.
+				app.xhr.trigger('GET', 'http://dennistel.nl/movies', app.xhr.setItem, this.movies);	// .. it fetches the movie data from the site. On success, save the data locally.
 			} else {								// If there IS local data..
 				this.movies(data);					// .. use that, and go to app.sections.movies
 			}
@@ -114,7 +114,7 @@ var app = app || {};
 				movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {	// .. then combine those values..
 					return totalScore + review.score; }, 0) / movie.reviews.length;		// .. and divide by total reviews to get the average review score.
 			});
-			
+
 			_.map(obj, function(movie) {
 				movie.genres = movie.genres.toString();		// Transforms the genre array to a string
 			});
