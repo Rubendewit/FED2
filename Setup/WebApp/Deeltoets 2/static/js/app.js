@@ -26,9 +26,9 @@ var app = app || {};
 			    'movies/date/?:order': function(order) {			// If there is an order behind the hash 'movie/date', it will show movies based on their release date.
 			    	app.sections.movies(app.xhr.getItem('movieData'), order);
 			    },
-			    'movie/:ID': function(ID) {
+			    'movie/:movieTitle': function(movieTitle) {
 			    	app.sections.toggle('detail-page');	
-			    	app.sections.detail(app.xhr.getItem('movieData'), ID);
+			    	app.sections.detail(app.xhr.getItem('movieData'), movieTitle);
 			    }
 			});
 		}
@@ -37,7 +37,7 @@ var app = app || {};
 	app.sections = {				// Sections function
 		init: function() {
 			
-			data = app.xhr.getItem('movieData'); 	// Fetches local data
+			var data = app.xhr.getItem('movieData');// Fetches local data
 			if(data == null) {						// If there is no local data..										
 				app.xhr.trigger('GET', 'http://dennistel.nl/movies', app.xhr.setItem, this.movies);	// .. it fetches the movie data from the site. On success, save the data locally.
 			} else {								// If there IS local data..
@@ -60,11 +60,11 @@ var app = app || {};
 		},
 		movies: function(obj, filter) {
 
-			obj = JSON.parse(obj);
+			var obj = JSON.parse(obj);
 
 			_.map(obj, function(movie) {												// Use underscore.js to map each value in a list..
 				movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {	// .. then combine those values..
-					return totalScore + review.score; }, 0) / movie.reviews.length;		// .. and divide by total reviews to get the average review score.
+					return totalScore + review.score; }, 0) / _.size(movie.reviews);		// .. and divide by total reviews to get the average review score.
 			});
 			switch(filter) {							// Checks what the filter is.
 				case 'all':
@@ -73,10 +73,12 @@ var app = app || {};
 				case 'horror':
 				case 'crime':
 				case 'drama':
-				case 'thriller':	
+				case 'thriller':
+				case 'action':
+				case 'adventure':	
 					obj = _.filter(obj, function(movie) { 							// Filters the obj..
 						filter = filter.charAt(0).toUpperCase() + filter.slice(1);	// .. with the genre behind the hash 'movie'..
-							return (_.contains(movie.genres, filter) == true); 		// .. and shows only movies with matching genre.
+							return (_.contains(movie.genres, filter) === true); 		// .. and shows only movies with matching genre.
 					});
 					break;
 				case 'asc':
@@ -106,21 +108,28 @@ var app = app || {};
 
 			Transparency.render(document.getElementById('movies'), obj, app.content.directives); 	// Displays the element with ID 'movies' with the content from 'obj'.
 		},
-		detail: function (obj, movieId) {		// Detail page section
+		detail: function (obj, movieTitle) {		// Detail page section
 
-			obj = JSON.parse(obj);		
+			var obj = JSON.parse(obj);		
 
 			_.map(obj, function(movie) {												// Use underscore.js to map each value in a list..
 				movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {	// .. then combine those values..
-					return totalScore + review.score; }, 0) / movie.reviews.length;		// .. and divide by total reviews to get the average review score.
+					return totalScore + review.score; }, 0) / _.size(movie.reviews);		// .. and divide by total reviews to get the average review score.
 			});
 
 			_.map(obj, function(movie) {
 				movie.genres = movie.genres.toString();		// Transforms the genre array to a string
 			});
 
-			movieId = parseInt(movieId) - 1;				// Parses the movieId to an integer, and making it compatible with array numbers.	
-			obj = obj[movieId];								// Uses the movieId to show the right movie.
+			var title = movieTitle;
+			title = title.replace(/-/g, ' ');				// Replaces the dashes with spaces
+			title = title.replace(/\b./g, function(m) {		// Capitalize each word
+				return m.toUpperCase(); 
+			});	
+
+			obj = _.filter(obj, function(movie) { 		// Filters the obj..
+					return movie.title === title; 		// .. and shows only movies with matching title.
+			});
 
 			Transparency.render(document.getElementById('detail'), obj, app.content.directives);	// Displays the element with ID 'detail' with the content from 'obj'.
 		}

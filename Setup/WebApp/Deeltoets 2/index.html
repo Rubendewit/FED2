@@ -43,6 +43,8 @@
 	 					<li><a href="#movies/genre/crime">Crime</a></li>
 	 					<li><a href="#movies/genre/drama">Drama</a></li>
 						<li><a href="#movies/genre/thriller">Thriller</a></li>
+						<li><a href="#movies/genre/action">Action</a></li>
+						<li><a href="#movies/genre/adventure">Adventure</a></li>
 					</ul>
 					<ul class="date">
 						<h1>Date</h1>
@@ -59,13 +61,17 @@
 				<article id="movies" data-bind="movies">
 					<section>
 						<header>
-							<h1 data-bind="title"></h1>
+							<a data-bind="link" href="">
+								<h1 data-bind="title"></h1>
+							</a>
 							<p>Release date: <time data-bind="release_date"></time></p>
 							<p>Rating: <span data-bind="reviews"></span></p>
 						</header>
 
 						<figure>
-							<img src="" alt="" data-bind="cover">
+							<a data-bind="link" href="">
+								<img src="" alt="" data-bind="cover">
+							</a>
 						</figure>
 
 						<p data-bind="simple_plot"></p>
@@ -93,6 +99,8 @@
 					<section class="actors">
 						<p data-bind="actors"></p>
 					</section>
+
+					<a href="#movies">Back to overview</a>
 
 				</article>
 			</section>

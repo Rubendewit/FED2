@@ -32,7 +32,7 @@ var app = app || {};
   			reviews: {
 				text: function(){						
 					if(isNaN(this.reviews)){
-						return 'Geen score beschikbaar';
+						return 'No score available';
 					} else {
 						return this.reviews;
 					}
@@ -41,7 +41,8 @@ var app = app || {};
 
 			link: {
 				href : function(params) {
-					return '#movie/' + this.id;
+					var title = this.title.replace(/\s+/g, '-').toLowerCase();
+					return '#movie/' + title;
 				}
 			}
 		}
