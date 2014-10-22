@@ -113,7 +113,8 @@ var app = app || {};
 			_.map(obj, function(movie) {												// Use underscore.js to map each value in a list..
 				movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {	// .. then combine those values..
 					return totalScore + review.score; }, 0) / movie.reviews.length;		// .. and divide by total reviews to get the average review score.
-
+			});
+			
 			_.map(obj, function(movie) {
 				movie.genres = movie.genres.toString();		// Transforms the genre array to a string
 			});
