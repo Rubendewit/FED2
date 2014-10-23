@@ -1,67 +1,104 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/reset\.scss}line{font-family:\000036}}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/reset\.scss}line{font-family:\0000316}}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/reset\.scss}line{font-family:\0000319}}
 body {
-	width: 100%;
-	margin: 0 auto;
-	font-size: 1.2em;
-	font-family: 'Calibri', Arial, sans-serif;
-	line-height: 1.25em;
-}
+  line-height: 1; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/reset\.scss}line{font-family:\0000322}}
+ol, ul {
+  list-style: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/reset\.scss}line{font-family:\0000325}}
+blockquote, q {
+  quotes: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/reset\.scss}line{font-family:\0000328}}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/reset\.scss}line{font-family:\0000332}}
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/style\.scss}line{font-family:\000035}}
+body {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 1.2em;
+  font-family: 'Calibri', Arial, sans-serif;
+  line-height: 1.25em;
+  background-color: #FFFD72; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/style\.scss}line{font-family:\0000314}}
 nav ul {
-	width: 100%;
-	margin: 20px 0px 0px 0px;
-	padding: 0px;
-	background-color: black;
-	display: inline-block;
-	list-style-type: none;	
-}
+  width: 100%;
+  padding: 0em;
+  background-color: black;
+  display: inline-block;
+  list-style-type: none; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/style\.scss}line{font-family:\0000322}}
 nav ul li {
-	width: 50%;
-	padding: 10px 0px;
-	text-align: center;
-	display: block;
-	float: left;  
+  width: 50%;
+  padding: 0.625em 0;
+  text-align: center;
+  display: block;
+  float: left;
+  -webkit-transition: all 300ms cubic-bezier(0.6, 0.01, 0.43, 1);
+  -moz-transition: all 300ms cubic-bezier(0.6, 0.01, 0.43, 1);
+  -ms-transition: all 300ms cubic-bezier(0.6, 0.01, 0.43, 1);
+  -o-transition: all 300ms cubic-bezier(0.6, 0.01, 0.43, 1);
+  transition: all 300ms cubic-bezier(0.6, 0.01, 0.43, 1); }
 
-	-webkit-transition: all 300ms cubic-bezier(0.6,.01,0.43,1);
-	-moz-transition: 	all 300ms cubic-bezier(0.6,.01,0.43,1);
-	-ms-transition: 	all 300ms cubic-bezier(0.6,.01,0.43,1);
-	-o-transition: 		all 300ms cubic-bezier(0.6,.01,0.43,1);
-	transition: 		all 300ms cubic-bezier(0.6,.01,0.43,1);
-}
-
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/style\.scss}line{font-family:\0000336}}
 nav ul li:hover {
-	background-color: rgba(0, 139, 61, 0.76);
-}
+  background-color: rgba(0, 139, 61, 0.76); }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/style\.scss}line{font-family:\0000340}}
 nav ul li a {
-	width: 100%;
-	color: white;
-	text-decoration: none;
-	display: inline-block;
-}
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  display: inline-block; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/style\.scss}line{font-family:\0000347}}
 section {
-	display: none;
-}
+  display: none; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/style\.scss}line{font-family:\0000351}}
 section.active, section.active section {
-	display: block;
-}
+  display: block; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/style\.scss}line{font-family:\0000355}}
 section#movie-page header > p {
-	font-style: italic;
-}
+  font-style: italic; }
 
-section#movie-page article {
-	
-}
-
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/style\.scss}line{font-family:\0000363}}
 section#movie-page article section {
-	margin-bottom: 1em;
-	background-color: rgba(235,235,235,1);
-}
+  margin-bottom: 1em;
+  background-color: #ebebeb; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/hp\/Documents\/GitHub\/FED2\/Setup\/WebApp\/Deeltoets\%202\/static\/css\/style\.scss}line{font-family:\0000368}}
 section#movie-page article section header h1 {
-	font-size: 1.5em;
-	margin: 0em;
-}
+  font-size: 1.5em;
+  margin: 0em; }
+
+/*# sourceMappingURL=style.css.map */
