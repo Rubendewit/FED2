@@ -1,6 +1,12 @@
-@import 'reset.scss';
+@import 'reset.css';
 
-$primary-color: #FFFD72;
+$text-color: #000000; // Black
+
+$home-color: #5588DC; // Blue
+$about-color: #F2CC0F; // Yellow
+$movie-color: #008b3d; // Green
+$other-color: #F24F4B; // Red
+
 
 body {
 	width: 100%;
@@ -8,40 +14,66 @@ body {
 	font-size: 1.2em;
 	font-family: 'Calibri', Arial, sans-serif;
 	line-height: 1.25em;
-	background-color: $primary-color;
+	color: $text-color;
 }
 
-nav ul {
-	width: 100%;
-	padding: 0em;
-	background-color: black;
-	display: inline-block;
-	list-style-type: none;	
+/*
+##  ##  ######   ####   ####    ######  ####      
+##  ##  ##      ##  ##  ##  ##  ##      ##  ##  
+######  ####    ######  ##  ##  ####    ####  
+##  ##  ##      ##  ##  ##  ##  ##      ##  ##  
+##  ##  ######  ##  ##  ####    ######  ##  ##    
+*/
+
+body > header {
+	width: 100%;	
+	position: fixed;
+	bottom: -0.3em;
+	left: 0;
 }
 
-nav ul li {
-	width: 50%;
-	padding: 0.625em 0;
-	text-align: center;
-	display: block;
-	float: left;  
+/*
+##  ##   ####   ##  ##
+### ##  ##  ##  ##  ##
+######  ######  ##  ##
+## ###  ##  ##   ####
+##  ##  ##  ##    ##
+*/
 
-	-webkit-transition: all 300ms cubic-bezier(0.6,.01,0.43,1);
-	-moz-transition: 	all 300ms cubic-bezier(0.6,.01,0.43,1);
-	-ms-transition: 	all 300ms cubic-bezier(0.6,.01,0.43,1);
-	-o-transition: 		all 300ms cubic-bezier(0.6,.01,0.43,1);
-	transition: 		all 300ms cubic-bezier(0.6,.01,0.43,1);
-}
+nav {
+	
+	ul {
+		width: 100%;
+		padding: 0em;
+		background-color: black;
+		display: inline-block;
+		list-style-type: none;
 
-nav ul li:hover {
-	background-color: rgba(0, 139, 61, 0.76);
-}
+		li {
+			width: 50%;
+			padding: 0.625em 0;
+			text-align: center;
+			display: block;
+			float: left;  
 
-nav ul li a {
-	width: 100%;
-	color: white;
-	text-decoration: none;
-	display: inline-block;
+			-webkit-transition: all 300ms cubic-bezier(0.6,.01,0.43,1);
+			-moz-transition: 	all 300ms cubic-bezier(0.6,.01,0.43,1);
+			-ms-transition: 	all 300ms cubic-bezier(0.6,.01,0.43,1);
+			-o-transition: 		all 300ms cubic-bezier(0.6,.01,0.43,1);
+			transition: 		all 300ms cubic-bezier(0.6,.01,0.43,1);
+
+			a {
+				width: 100%;
+				color: white;
+				text-decoration: none;
+				display: inline-block;
+			}
+		}	
+
+		li:hover {
+			background-color: rgba(0, 139, 61, 0.76);
+		}
+	}
 }
 
 section {
@@ -50,6 +82,143 @@ section {
 
 section.active, section.active section {
 	display: block;
+}
+
+/*
+##      ##   ####   ##  ##  ##  
+###    ###  ##  ##  ##  ### ##  
+####  ####  ######  ##  ######   
+## #### ##  ##  ##  ##  ## ###    
+##  ##  ##  ##  ##  ##  ##  ##  
+*/
+
+main {
+
+}
+
+/*
+##      ##   ####   ##  ##  ##  ######
+###    ###  ##  ##  ##  ##  ##  ##    
+####  ####  ##  ##  ##  ##  ##  ####  
+## #### ##  ##  ##   ####   ##  ##     
+##  ##  ##   ####     ##    ##  ######
+*/
+
+section#movie-page {
+
+	ul {
+
+
+		ul.genre {
+
+
+			h1 {
+
+
+				li {
+
+
+					a {
+
+					}
+				}
+			}
+		}
+
+		ul.date {
+
+
+			h1 {
+
+
+				li {
+
+
+					a {
+
+					}
+				}
+			}
+		}
+
+		ul.rating {
+
+
+			h1 {
+
+
+				li {
+
+
+					a {
+
+					}
+				}
+			}
+		}
+	}	
+
+	article {
+
+
+		header {
+
+
+			a {
+
+				h1 {
+
+				}
+			}
+
+			p {
+
+			
+			}
+		}
+
+		figure {
+
+
+			img {
+
+			}
+		}
+
+		p {
+
+		}
+
+		a {
+
+		}
+	}
+}
+
+/*
+	####  ##	####  ##  ##
+	##    ##	#	  ##  ##
+	###   ##	#‴‴	   ####
+	##    ####	####  ##  ##
+*/
+.flex-wrapper {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: space-around;
+
+	.flex-item {
+		order: 0;
+		flex: 1 1 auto;
+		align-self: auto;
+	}
 }
 
 section#movie-page header > p {

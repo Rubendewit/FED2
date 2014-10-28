@@ -8,24 +8,22 @@
         <link rel="author" href="humans.txt">
 
         <!-- CSS -->
-        <link rel="stylesheet" href="static/css/style.scss">
+        <link rel="stylesheet" href="static/css/style.css">
         
         <title>Movies</title>
 
     </head>
     <body>
 
-		<header>
-			<nav>
-				<ul>
-					<li><a href="#about">About</a></li>
-					<li><a href="#movies">Movies</a></li>
-				</ul>
-			</nav>
-		</header>
-
 		<main id="content">
 			
+			<section id="home-page">
+				<header>
+					<h1 data-bind="title"></h1>
+				</header>
+				<p data-bind="description"></p>
+			</section>
+
 			<section id="about-page">
 				<header>
 					<h1 data-bind="title"></h1>
@@ -57,8 +55,8 @@
 					</ul>
 				</ul>
 
-				<article id="movies" data-bind="movies">
-					<section>
+				<article id="movies" data-bind="movies" class="flex-wrapper">
+					<section class="flex-item">
 						<header>
 							<a data-bind="link" href="">
 								<h1 data-bind="title"></h1>
@@ -105,6 +103,16 @@
 			</section>
 
 		</main>
+
+		<header>
+			<nav>
+				<ul>
+					<li><a href="#about">About</a></li>
+					<li><a href="#movies">Movies</a></li>
+				</ul>
+			</nav>
+		</header>
+
 
 		<!-- SCRIPTS -->
 		<script src="static/js/vendor/routie.js"></script>

@@ -11,6 +11,12 @@ var app = app || {};
 	app.router = {										// Router function
 		init: function(){
 			routie({ 									// Routie looks at the # in the URL
+				'': function() {
+					app.sections.toggle('home-page');
+				},
+				'home': function() {
+					app.sections.toggle('home-page');
+				},
     			'about': function() {					// If 'about' is after the # then..
     				app.sections.toggle('about-page');  // .. the 'about-page' section becomes visible
     			},
@@ -44,6 +50,7 @@ var app = app || {};
 				this.movies(data);					// .. use that, and go to app.sections.movies
 			}
 
+			this.home();			// Starts the home function
 			this.about();			// Starts the about function
 		},
 		toggle: function(id) {											// The function uses the div ID given by the app.sections.toggle in routie									
@@ -54,6 +61,9 @@ var app = app || {};
 			}
 			if(document.getElementById(id))
 				document.getElementById(id).classList.add('active');    // The class 'active' is given to the element with the corresponding ID
+		},
+		home: function(){
+			Transparency.render(document.getElementById('home-page'), app.content.home, app.content.directives); // Displays the element with ID 'about-page' with the content from 'about'.
 		},
 		about: function(){
 			Transparency.render(document.getElementById('about-page'), app.content.about, app.content.directives); // Displays the element with ID 'about-page' with the content from 'about'.
