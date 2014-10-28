@@ -142,6 +142,8 @@ var app = app || {};
 			});
 
 			Transparency.render(document.getElementById('detail'), obj, app.content.directives);	// Displays the element with ID 'detail' with the content from 'obj'.
+			
+			document.getElementById('menu-back').classList.remove('hidden'); // Adds a back button to the nav.
 		}
 	};
 
