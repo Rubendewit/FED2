@@ -6,7 +6,7 @@ var app = app || {};
 		
 		home: {
 			title: 'Home',
-			description: '<p>Welcome to the Movie App. I hope you will enjoy your stay.</p>'
+			description: '<p>Welcome to the Movie App. Grab a cup o\' coffee, sit down and relax. Enjoy your stay.</p><p class="cup-container"><span class="flaticon-coffee68"></span></p>'
 		},
 
 		about: {

@@ -273,7 +273,7 @@ section#movie-page > ul {
 section#movie-page article section {
   padding: 1em 0.5em;
   box-shadow: 0 -0.25em 1.25em 0 rgba(0, 0, 0, 0.21); }
-  section#movie-page article section header a h1 {
+  section#movie-page article section header h1 {
     width: 100%;
     padding: 0em 0em 0.5em 0em;
     color: #000000;

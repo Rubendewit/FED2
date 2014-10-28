@@ -15,7 +15,7 @@ Best practices used in code
 * Place external scripts at the bottom of the page
 
 ## CSS
-* Don't use unnecessary !importants.
+* Don't use !importants.
 
 ## HTML
 * Always be semantically correct.
