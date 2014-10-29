@@ -45,13 +45,6 @@ var app = app || {};
 
 	app.sections = {									// Sections function
 		init: function() {
-			
-			// var data = app.xhr.getItem('movieData');	// Fetches local data
-			// if(data === null) {							// If there is no local data..										
-			// 	app.xhr.trigger('GET', 'http://dennistel.nl/movies', app.xhr.setItem, this.movies);	// .. it fetches the movie data from the site. On success, save the data locally.
-			// } else {									// If there IS local data..
-			// 	this.movies(data);						// .. use that, and go to app.sections.movies
-			// }
 
 			this.home();			// Starts the home function.
 			this.about();			// Starts the about function.
@@ -75,8 +68,6 @@ var app = app || {};
 		movies: function(filter) {		// Movies page function.
 
 			var obj = JSON.parse(localStorage.getItem('movieData'));		// Parses the JSON data.
-			console.log(obj);
-			console.log(filter);
 
 			_.map(obj, function(movie) {												// Use underscore.js to map each value in a list..
 				movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {	// .. then combine those values..
@@ -121,8 +112,6 @@ var app = app || {};
 					// No valid filter.
 					break;
 				}
-
-				console.log(obj);
 
 			Transparency.render(document.getElementById('movies'), obj, app.content.directives); 	// Displays the element with ID 'movies' with the content from 'obj'.
 		},
