@@ -190,9 +190,9 @@ var app = app || {};
 
 			var element = document.body;									// 
 			var hammertime = Hammer(element).on('pan', function(event) {
-				var deltaX = event.deltaX / 10;
-				var deltaY = event.deltaY / 10;
-				var rotate = 'rotate3d(' + deltaX + ',' + deltaY + ',2,' + event.distance + 'deg)';
+				var moveX = event.deltaX / 10;
+				var moveY = event.deltaY / 10;
+				var rotate = 'rotate3d(' + moveY + ',' + moveX + ',2,' + event.distance + 'deg)';
 				document.getElementById('cup-container').style.transform = rotate;
 			});
 		},
