@@ -27,17 +27,17 @@ var app = app || {};
    		 			app.sections.toggle('movie-page');	
     			},
     			'movies/genre/?:genre': function(genre) {		// If there is a genre behind the hash 'movies/genre', it will only show movies with that genre.
-			    	app.sections.movies(app.xhr.getItem('movieData'), genre);
+			    	app.sections.movies(genre);
 			    },
 			    'movies/rating/?:order': function(order) {		// If there is an order behind the hash 'movies/rating', it will show movies based on their rating.
-			    	app.sections.movies(app.xhr.getItem('movieData'), order);
+			    	app.sections.movies(order);
 			    },
 			    'movies/date/?:order': function(order) {			// If there is an order behind the hash 'movies/date', it will show movies based on their release date.
-			    	app.sections.movies(app.xhr.getItem('movieData'), order);
+			    	app.sections.movies(order);
 			    },
 			    'movie/:movieTitle': function(movieTitle) {			// If there is a title behind the hash 'movie', show the detail page from that movie.
 			    	app.sections.toggle('detail-page');	
-			    	app.sections.detail(app.xhr.getItem('movieData'), movieTitle);
+			    	app.sections.detail(movieTitle);
 			    }
 			});
 		}
@@ -75,6 +75,8 @@ var app = app || {};
 		movies: function(filter) {		// Movies page function.
 
 			var obj = JSON.parse(localStorage.getItem('movieData'));		// Parses the JSON data.
+			console.log(obj);
+			console.log(filter);
 
 			_.map(obj, function(movie) {												// Use underscore.js to map each value in a list..
 				movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {	// .. then combine those values..
@@ -119,6 +121,8 @@ var app = app || {};
 					// No valid filter.
 					break;
 				}
+
+				console.log(obj);
 
 			Transparency.render(document.getElementById('movies'), obj, app.content.directives); 	// Displays the element with ID 'movies' with the content from 'obj'.
 		},
