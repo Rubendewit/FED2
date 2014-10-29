@@ -1,17 +1,19 @@
+var app = app || {};
+
 (function(){
 
-	document.getElementById('genre').onclick = function() {
-		app.functions.listToggle('genre');
-	}
-	document.getElementById('date').onclick = function() {
-		app.functions.listToggle('date');
-	}
-	document.getElementById('rating').onclick = function() {
-		app.functions.listToggle('rating');
-	}
+	// document.getElementById('genre').onclick = function() {
+	// 	app.functions.listToggle('genre');
+	// }
+	// document.getElementById('date').onclick = function() {
+	// 	app.functions.listToggle('date');
+	// }
+	// document.getElementById('rating').onclick = function() {
+	// 	app.functions.listToggle('rating');
+	// }
 
 	document.getElementById('menu-about').onclick = function() {
-		app.functions.menuToggle('menu-about');
+		app.functions.menuToggle('nav-about');
 	}
 	document.getElementById('menu-movies').onclick = function() {
 		app.functions.menuToggle('menu-movies');
@@ -47,5 +49,6 @@
 				document.getElementById(id).classList.add('current');
 				document.getElementById('menu-back').classList.add('hidden');
 		}
-	}
+	};
+
 }());

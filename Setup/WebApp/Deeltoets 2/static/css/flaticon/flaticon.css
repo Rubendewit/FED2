@@ -15,18 +15,27 @@
 	font-family: Flaticon;
 	font-size: 2.5em;
 	font-style: normal;
-}.flaticon-coffee68:before {
+}.flaticon-calendar160:before {
 	content: "\e000";
 }
-.flaticon-home152:before {
+.flaticon-coffee68:before {
 	content: "\e001";
 }
-.flaticon-left222:before {
+.flaticon-home152:before {
 	content: "\e002";
 }
-.flaticon-movie42:before {
+.flaticon-left222:before {
 	content: "\e003";
 }
-.flaticon-round66:before {
+.flaticon-movie42:before {
 	content: "\e004";
+}
+.flaticon-round67:before {
+	content: "\e005";
+}
+.flaticon-share41:before {
+	content: "\e006";
+}
+.flaticon-web39:before {
+	content: "\e007";
 }

@@ -16,6 +16,7 @@ Best practices used in code
 
 ## CSS
 * Don't use !importants.
+* Use em and % instead of px!
 
 ## HTML
 * Always be semantically correct.

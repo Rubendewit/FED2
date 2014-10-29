@@ -126,6 +126,59 @@ section.active, section.active section {
 ##  ##  ##  ##  ##  ##  ##  ##  
 */
 /*
+##     ####    ####   ####    ##  ##  ##   #### 
+##    ##  ##  ##  ##  ##  ##  ##  ### ##  ##  
+##    ##  ##  ######  ##  ##  ##  ######  ## ###
+##    ##  ##  ##  ##  ##  ##  ##  ## ###  ##  ##
+####   ####   ##  ##  ####    ##  ##  ##   #### 
+*/
+section#loading div h1 {
+  height: 2.75em;
+  width: 4em;
+  padding: 4.25em 3em 3em 3em;
+  background-color: #F24F4B;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  position: fixed;
+  top: 10%;
+  left: 17%;
+  flex: 0 1 auto;
+  align-self: center;
+  -webkit-animation: loader 2.5s infinite ease-in-out;
+  -moz-animation: loader 2.5s infinite ease-in-out;
+  -o-animation: loader 2.5s infinite ease-in-out; }
+@-webkit-keyframes loader {
+  0% {
+    -webkit-transform: scale(1) skew(-180deg);
+    border-radius: 50% 0%; }
+  50% {
+    -webkit-transform: scale(0.65) skew(0deg);
+    border-radius: 0% 50%; }
+  100% {
+    -webkit-transform: scale(1) skew(180deg);
+    border-radius: 50% 0%; } }
+@-moz-keyframes loader {
+  0% {
+    -moz-transform: scale(1) skew(-180deg) translate(0px);
+    border-radius: 50% 0%; }
+  50% {
+    -moz-transform: scale(0.65) skew(0deg) translate(0px);
+    border-radius: 0% 50%; }
+  100% {
+    -moz-transform: scale(1) skew(180deg) translate(0px);
+    border-radius: 50% 0%; } }
+@-o-keyframes loader {
+  0% {
+    -o-transform: scale(1) skew(-180deg);
+    border-radius: 50% 0%; }
+  50% {
+    -o-transform: scale(0.65) skew(0deg);
+    border-radius: 0% 50%; }
+  100% {
+    -o-transform: scale(1) skew(180deg);
+    border-radius: 50% 0%; } }
+/*
 ##  ##   ####   ##      ##  ######
 ##  ##  ##  ##  ###    ###  ##    
 ######  ##  ##  ####  ####  ####  
@@ -147,10 +200,10 @@ section#home-page div p {
   padding: 0.5em;
   font-size: 1.1em;
   line-height: 1.3em; }
-section#home-page div p:last-child {
+section#home-page div p#cup-container {
   height: 13em;
   width: 13em;
-  margin: 2em auto;
+  margin: 0 auto;
   padding: 0;
   color: #FFFFFF;
   background: #5588DC;
@@ -160,11 +213,17 @@ section#home-page div p:last-child {
   justify-content: center;
   align-content: center;
   align-items: center; }
-  section#home-page div p:last-child span {
+  section#home-page div p#cup-container span {
     margin: 0.6em 0em 0em 0.15em;
     font-size: 5em;
     flex: 0 1 auto;
     align-self: center; }
+section#home-page div p:last-child {
+  width: 100%;
+  padding: 0.2em 0em;
+  color: rgba(0, 0, 0, 0.35);
+  text-align: center;
+  font-style: italic; }
 
 /*
  ####   #####    ####   ##  ##   ######
@@ -203,9 +262,9 @@ section#movie-page > ul {
     display: inline-block;
     color: #FFFFFF; }
   section#movie-page > ul ul#genre h1 {
-    height: 1.5em;
+    height: 2em;
     width: 100%;
-    padding-top: 0.3em;
+    padding-top: 0.6em;
     color: white;
     font-family: "Roboto Slab", "Calibri", sans-serif;
     font-weight: bold;
@@ -225,9 +284,9 @@ section#movie-page > ul {
   section#movie-page > ul ul#genre li:hover {
     background-color: #EF6B42; }
   section#movie-page > ul ul#date h1 {
-    height: 1.5em;
+    height: 2em;
     width: 100%;
-    padding-top: 0.3em;
+    padding-top: 0.6em;
     color: white;
     font-family: "Roboto Slab", "Calibri", sans-serif;
     font-weight: bold;
@@ -247,9 +306,9 @@ section#movie-page > ul {
   section#movie-page > ul ul#date li:hover {
     background-color: #42A1C0; }
   section#movie-page > ul ul#rating h1 {
-    height: 1.5em;
+    height: 2em;
     width: 100%;
-    padding-top: 0.3em;
+    padding-top: 0.6em;
     color: white;
     font-family: "Roboto Slab", "Calibri", sans-serif;
     font-weight: bold;
