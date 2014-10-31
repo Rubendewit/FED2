@@ -297,7 +297,8 @@ section#home-page {
 */
 
 section#about-page {
-
+	margin-bottom: 3em;
+	
 	header {
 
 		h1 {
@@ -333,9 +334,10 @@ section#movie-page {
 		margin-bottom: 0.5em;
 
 		ul li a {
+			width: 100%;
 			padding-top: 0.1em;
-			display: inline-block;
 			color: $alt-text-color;
+			display: inline-block;
 		}
 
 		ul#genre {

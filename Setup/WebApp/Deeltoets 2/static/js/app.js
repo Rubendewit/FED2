@@ -67,7 +67,7 @@ var app = app || {};
 		},
 		movies: function(filter) {		// Movies page function.
 
-			var obj = JSON.parse(localStorage.getItem('movieData'));		// Parses the JSON data.
+			var obj = JSON.parse(localStorage.getItem('movieData'));		// Parses the local JSON data.
 
 			_.map(obj, function(movie) {												// Use underscore.js to map each value in a list..
 				movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {	// .. then combine those values..
@@ -115,9 +115,9 @@ var app = app || {};
 
 			Transparency.render(document.getElementById('movies'), obj, app.content.directives); 	// Displays the element with ID 'movies' with the content from 'obj'.
 		},
-		detail: function (obj, movieTitle) {	// Detail page section.
+		detail: function (movieTitle) {	// Detail page section.
 
-			var obj = JSON.parse(obj);			// Parses the JSON data.
+			var obj = JSON.parse(localStorage.getItem('movieData'));		// Parses the local JSON data.
 
 			_.map(obj, function(movie) {												// Use underscore.js to map each value in a list..
 				movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {	// .. then combine those values..
