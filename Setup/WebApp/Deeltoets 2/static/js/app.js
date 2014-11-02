@@ -147,37 +147,37 @@ var app = app || {};
 	app.gestures = {								// Gestures function.
 		init: function() {
 			var element = document.getElementById('genre');					// Searches for an element with id 'genre'..
-			var hammertime = Hammer(element).on('tap', function(event) {	// .. and when there's a tap on the element..
+			var hammertime = Hammer(element).on('tap touch', function(event) {	// .. and when there's a press on the element..
 				app.gestures.listToggle('genre');							// .. toggle the genre filter list at the top of the page.
 			});
 
 			var element = document.getElementById('date');					// Same here, but with 'date'.
-			var hammertime = Hammer(element).on('tap', function(event) {
+			var hammertime = Hammer(element).on('tap touch', function(event) {
 				app.gestures.listToggle('date');
 			});
 
 			var element = document.getElementById('rating');				// And same here, but with 'rating'.
-			var hammertime = Hammer(element).on('tap', function(event) {
+			var hammertime = Hammer(element).on('tap touch', function(event) {
 				app.gestures.listToggle('rating');
 			});
 
 			var element = document.getElementById('menu-about');			// Same here, but with 'menu-about'..
-			var hammertime = Hammer(element).on('tap', function(event) {
+			var hammertime = Hammer(element).on('tap touch', function(event) {
 				app.gestures.menuToggle('menu-about');						// .. and it toggles the menu at the bottom, instead of the genre filter list.
 			});
 
 			var element = document.getElementById('menu-movies');			// Same here, but with 'menu-movies'.
-			var hammertime = Hammer(element).on('tap', function(event) {
+			var hammertime = Hammer(element).on('tap touch', function(event) {
 				app.gestures.menuToggle('menu-movies');
 			});
 
 			var element = document.getElementById('menu-home');				// Same here, but with 'menu-home'.
-			var hammertime = Hammer(element).on('tap', function(event) {
+			var hammertime = Hammer(element).on('tap touch', function(event) {
 				app.gestures.menuToggle('menu-home');
 			});
 
 			var element = document.getElementById('menu-back');				// Same here, but with 'menu-back'.
-			var hammertime = Hammer(element).on('tap', function(event) {
+			var hammertime = Hammer(element).on('tap touch', function(event) {
 				app.gestures.menuToggle('menu-movies');						// It toggles the 'menu-movies', which is the page before the detailed-page. The back button is only visible at the detail-page.
 			});
 
