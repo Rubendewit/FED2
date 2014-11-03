@@ -56,7 +56,7 @@ a, a:hover, a:visited, a:active {
 }
 
 @mixin filter-list {
-	height: 1.5em;
+	height: 2em;
 	width: 100%;
 	text-align: center;
 	display: none;
@@ -335,7 +335,7 @@ section#movie-page {
 
 		ul li a {
 			width: 100%;
-			padding-top: 0.1em;
+			padding-top: 0.4em;
 			color: $alt-text-color;
 			display: inline-block;
 		}

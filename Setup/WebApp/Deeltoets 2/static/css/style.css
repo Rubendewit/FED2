@@ -261,7 +261,7 @@ section#movie-page > ul {
   margin-bottom: 0.5em; }
   section#movie-page > ul ul li a {
     width: 100%;
-    padding-top: 0.1em;
+    padding-top: 0.4em;
     color: #FFFFFF;
     display: inline-block; }
   section#movie-page > ul ul#genre h1 {
@@ -274,7 +274,7 @@ section#movie-page > ul {
     text-align: center;
     background-color: #EF6B42; }
   section#movie-page > ul ul#genre li {
-    height: 1.5em;
+    height: 2em;
     width: 100%;
     text-align: center;
     display: none;
@@ -296,7 +296,7 @@ section#movie-page > ul {
     text-align: center;
     background-color: #42A1C0; }
   section#movie-page > ul ul#date li {
-    height: 1.5em;
+    height: 2em;
     width: 100%;
     text-align: center;
     display: none;
@@ -318,7 +318,7 @@ section#movie-page > ul {
     text-align: center;
     background-color: #90CC49; }
   section#movie-page > ul ul#rating li {
-    height: 1.5em;
+    height: 2em;
     width: 100%;
     text-align: center;
     display: none;

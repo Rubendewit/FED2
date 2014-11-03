@@ -119,15 +119,6 @@ var app = app || {};
 
 			var obj = JSON.parse(localStorage.getItem('movieData'));		// Parses the local JSON data.
 
-			_.map(obj, function(movie) {												// Use underscore.js to map each value in a list..
-				movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {	// .. then combine those values..
-					return totalScore + review.score; }, 0) / _.size(movie.reviews);		// .. and divide by total reviews to get the average review score.
-			});
-
-			_.map(obj, function(movie) {
-				movie.genres = movie.genres.toString();		// Transforms the genre array to a string.
-			});
-
 			var title = movieTitle;
 			title = title.replace(/-/g, ' ');				// Replaces the dashes with spaces.
 			title = title.replace(/\b./g, function(m) {		// Capitalize each word.
@@ -138,79 +129,82 @@ var app = app || {};
 					return movie.title === title; 		// .. and shows only movies with matching title.
 			});
 
+			_.map(obj, function(movie) {												// Use underscore.js to map each value in a list..
+				movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {	// .. then combine those values..
+					return totalScore + review.score; }, 0) / _.size(movie.reviews);		// .. and divide by total reviews to get the average review score.
+			});
+
+			_.map(obj, function(movie) {
+				movie.genres = movie.genres.toString();		// Transforms the genre array to a string.
+			});
+
+
 			Transparency.render(document.getElementById('detail'), obj, app.content.directives);	// Displays the element with ID 'detail' with the content from 'obj'.
 			
 			document.getElementById('menu-back').classList.remove('hidden'); // Adds a back button to the nav.
 		}
 	};
 
-	app.gestures = {								// Gestures function.
+	app.gestures = {		// Gestures function.
 		init: function() {
-			var element = document.getElementById('genre');					// Searches for an element with id 'genre'..
-			var hammertime = Hammer(element).on('tap touch', function(event) {	// .. and when there's a press on the element..
-				app.gestures.listToggle('genre');							// .. toggle the genre filter list at the top of the page.
-			});
+			document.getElementById('genre').onclick = function() {
+				app.gestures.listToggle('genre');
+			}
 
-			var element = document.getElementById('date');					// Same here, but with 'date'.
-			var hammertime = Hammer(element).on('tap touch', function(event) {
+			document.getElementById('date').onclick = function() {
 				app.gestures.listToggle('date');
-			});
+			}
 
-			var element = document.getElementById('rating');				// And same here, but with 'rating'.
-			var hammertime = Hammer(element).on('tap touch', function(event) {
+			document.getElementById('rating').onclick = function() {
 				app.gestures.listToggle('rating');
-			});
+			}
 
-			var element = document.getElementById('menu-about');			// Same here, but with 'menu-about'..
-			var hammertime = Hammer(element).on('tap touch', function(event) {
-				app.gestures.menuToggle('menu-about');						// .. and it toggles the menu at the bottom, instead of the genre filter list.
-			});
+			document.getElementById('menu-about').onclick = function() {
+				app.gestures.menuToggle('menu-about');
+			}
 
-			var element = document.getElementById('menu-movies');			// Same here, but with 'menu-movies'.
-			var hammertime = Hammer(element).on('tap touch', function(event) {
+			document.getElementById('menu-movies').onclick = function() {
 				app.gestures.menuToggle('menu-movies');
-			});
+			}
 
-			var element = document.getElementById('menu-home');				// Same here, but with 'menu-home'.
-			var hammertime = Hammer(element).on('tap touch', function(event) {
+			document.getElementById('menu-home').onclick = function() {
 				app.gestures.menuToggle('menu-home');
-			});
+			}
 
-			var element = document.getElementById('menu-back');				// Same here, but with 'menu-back'.
-			var hammertime = Hammer(element).on('tap touch', function(event) {
-				app.gestures.menuToggle('menu-movies');						// It toggles the 'menu-movies', which is the page before the detailed-page. The back button is only visible at the detail-page.
-			});
+			document.getElementById('menu-back').onclick = function() {
+				app.gestures.menuToggle('menu-back');
+			}
 
-			var element = document.body;									// 
-			var hammertime = Hammer(element).on('pan', function(event) {
-				var moveX = event.deltaX / 10;
-				var moveY = event.deltaY / 10;
-				var rotate = 'rotate3d(' + moveY + ',' + moveX + ',2,' + event.distance + 'deg)';
-				document.getElementById('cup-container').style.transform = rotate;
+			var element = document.getElementById('home-page');									// Gets the body and puts it in variable element
+			var hammertime = Hammer(element).on('pan', function(event) {	// Registers pan on the body
+				var moveX = event.deltaX / 10;								// Gets the amount you pan on the X-axis
+				var moveY = event.deltaY / 10;								// Gets the amount you pan on the Y-axis
+				var rotate = 'rotate3d(' + moveY + ',' + moveX + ',2,' + event.distance + 'deg)';	// Adds the variables moveY and moveX to a rotate variable.
+				document.getElementById('cup-container').style.transform = rotate;					// Adds that variable to the cup-container transform property.
 			});
 		},
-		listToggle: function(id) {										
-			if(document.getElementById(id).classList.contains('active')) {
-				document.getElementById(id).classList.remove('active'); 
+		listToggle: function(id) {		// List toggle section								
+			if(document.getElementById(id).classList.contains('active')) {	// If the element has a class 'active'..
+				document.getElementById(id).classList.remove('active'); 	// .. it removes that class.
 			} else {
-				var listElements = document.getElementsByTagName('ul');
-				for(var i in listElements) {								
+				var listElements = document.getElementsByTagName('ul');		// If it doesn't have class 'active', get all uls.
+				for(var i in listElements) {								// For every ul..
 					if(listElements[i].classList)							
-						listElements[i].classList.remove('active');			
+						listElements[i].classList.remove('active');			// .. remove the class 'active'
 				}
 				if(document.getElementById(id))
-				document.getElementById(id).classList.add('active');
+				document.getElementById(id).classList.add('active');		// Adds the class 'active' to the clicked element.
 			}
 		},
-		menuToggle: function(id) {
-			var menuItems = document.getElementsByTagName('li');
-			for(var i in menuItems) {								
+		menuToggle: function(id) {		// Menu toggle section
+			var menuItems = document.getElementsByTagName('li');			// Gets all the lis.
+			for(var i in menuItems) {										// For every li..
 				if(menuItems[i].classList)							
-					menuItems[i].classList.remove('current');			
+					menuItems[i].classList.remove('current');				// .. remove the class 'current' 
 			}
 			if(document.getElementById(id))
-				document.getElementById(id).classList.add('current');
-				document.getElementById('menu-back').classList.add('hidden');
+				document.getElementById(id).classList.add('current');		// Adds the class 'current' to the clicked element.
+				document.getElementById('menu-back').classList.add('hidden');	// Adds class 'hidden' to the back button, making it disappear.
 		}
 	};
 
