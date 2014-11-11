@@ -147,32 +147,33 @@ var app = app || {};
 
 	app.gestures = {		// Gestures function.
 		init: function() {
+			var self = this;
 			document.getElementById('genre').onclick = function() {
-				app.gestures.listToggle('genre');
+				self.listToggle('genre');
 			}
 
 			document.getElementById('date').onclick = function() {
-				app.gestures.listToggle('date');
+				self.listToggle('date');
 			}
 
 			document.getElementById('rating').onclick = function() {
-				app.gestures.listToggle('rating');
+				self.listToggle('rating');
 			}
 
 			document.getElementById('menu-about').onclick = function() {
-				app.gestures.menuToggle('menu-about');
+				self.menuToggle('menu-about');
 			}
 
 			document.getElementById('menu-movies').onclick = function() {
-				app.gestures.menuToggle('menu-movies');
+				self.menuToggle('menu-movies');
 			}
 
 			document.getElementById('menu-home').onclick = function() {
-				app.gestures.menuToggle('menu-home');
+				self.menuToggle('menu-home');
 			}
 
 			document.getElementById('menu-back').onclick = function() {
-				app.gestures.menuToggle('menu-back');
+				self.menuToggle('menu-back');
 			}
 
 			var element = document.getElementById('home-page');									// Gets the body and puts it in variable element

@@ -17,9 +17,7 @@ var app = app || {};
 						  + '<p>That tall drink of water with the silver spoon up his ass. well, what is it today? more spelunking? i now issue a new commandment: thou shalt do the dance. let me tell you something my friend. hope is a dangerous thing. hope can drive a man insane. i did the same thing to gandhi, he didn\'t eat for three weeks. the man likes to play chess; let\'s get him some rocks. i now issue a new commandment: thou shalt do the dance. i now issue a new commandment: thou shalt do the dance. multiply your anger by about a hundred, kate, that\'s how much he thinks he loves you. i don\'t think they tried to market it to the billionaire, spelunking, base-jumping crowd. that tall drink of water with the silver spoon up his ass. it only took me six days. same time it took the lord to make the world. </p>'
 		},
 
-		// movies: [],
-
-		directives: {
+	directives: {
 
 		description: {
 			html: function(params) {
@@ -80,12 +78,10 @@ var app = app || {};
 			if(window.navigator.onLine) {								
 				app.xhr.trigger('GET', source, function(response) {
 					localStorage.setItem('movieData', response);
-					//app.content.movies = JSON.parse(response);
 					callback();
 				});
 			} else {
 				if(localStorage.getItem('movieData'))
-					//app.content.movies = JSON.parse(app.xhr.getItem('movieData'));
 					callback();
 			}
 		},
